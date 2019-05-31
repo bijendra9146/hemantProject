@@ -1,0 +1,48 @@
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <form>
+        <div class="md-form">
+            <label for="userRule" class="">Rule Name</label>
+
+          <input mdbInputDirective [(ngModel)]="userObject.userRule" name="userRule" type="text" id="userRule" class="form-control" required>
+        </div>
+        <div class="md-form">
+            <label for="userCountry" class="">Country Name</label>
+
+          <input mdbInputDirective [(ngModel)]="userObject.userCountry" name="userCountry" type="test" id="userCountry" class="form-control" required>
+        </div>
+<br>
+        <button (click)="getInfo()">Search</button>
+    </form>
+<br>
+<br>
+<br>
+<br>
+
+  <div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Country</th>
+        <th>Rule</th>
+        <th>Update</th>
+        <th>Reference Case</th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let element of objectArray" >
+      <tr>
+        <td>{{element.Date | date:'medium' }}</td>
+        <td>{{element.Country}}</td>
+        <td>{{element.Rule}}</td>
+        <td>{{element.Update}}</td>
+        <td>{{element.Reference_Case}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+</div>
