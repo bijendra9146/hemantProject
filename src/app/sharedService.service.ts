@@ -17,4 +17,16 @@ export class SharedService {
     }))
   }
 
+  insertTableData(data){
+console.log("serveice data is ",data);
+    var header = new HttpHeaders({
+      'Content-Type': 'application/json'
+  });
+
+    return  this._http.post("http://localhost:3000/users/insertInfo",data,{ headers: header}).pipe(map(response => {
+      {return response}
+    }))
+  }
+
+
 }

@@ -2,6 +2,15 @@
     <br>
     <br>
     <br>
+    <div class="menu-wrapper">
+      <button (click)="search()">Search</button>
+      <button (click)="insert()">Insert</button>
+      <!-- <button (click)="update()">Update</button> -->
+    </div>
+    <br>
+    <br>
+<div class="searchWrapper" *ngIf="searchFlag">
+    <h4>Search Page</h4>  
     <form>
         <div class="md-form">
             <label for="userRule" class="">Rule Name</label>
@@ -13,36 +22,101 @@
 
           <input mdbInputDirective [(ngModel)]="userObject.userCountry" name="userCountry" type="test" id="userCountry" class="form-control" required>
         </div>
-<br>
+    <br>
         <button (click)="getInfo()">Search</button>
     </form>
-<br>
-<br>
-<br>
-<br>
-
-  <div class="table-responsive">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Country</th>
-        <th>Rule</th>
-        <th>Update</th>
-        <th>Reference Case</th>
-      </tr>
-    </thead>
-
-    <tbody *ngFor="let element of objectArray" >
-      <tr>
-        <td>{{element.Date | date:'medium' }}</td>
-        <td>{{element.Country}}</td>
-        <td>{{element.Rule}}</td>
-        <td>{{element.Update}}</td>
-        <td>{{element.Reference_Case}}</td>
-      </tr>
-    </tbody>
-
-  </table>
+    <br>
+    <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Country</th>
+              <th>Rule</th>
+              <th>Update</th>
+              <th>Reference Case</th>
+            </tr>
+          </thead>
+      
+          <tbody *ngFor="let element of objectArray" >
+            <tr>
+              <td>{{element.DateStat | date:'medium' }}</td>
+              <td>{{element.Country}}</td>
+              <td>{{element.Rule}}</td>
+              <td>{{element.UpdateStat}}</td>
+              <td>{{element.Reference_Case}}</td>
+            </tr>
+          </tbody>
+      
+        </table>
+      </div>
 </div>
+<div class="insertWrapper" *ngIf="insertFlag">
+  <h4>Insert Page</h4>
+    <form>
+     
+        <div class="md-form">
+            <label for="userCountry" class="">Country Name</label>
+          <input mdbInputDirective [(ngModel)]="insertUserObject.userCountry" name="userCountry" type="text" id="userCountry" class="form-control" required>
+        </div>
+        <div class="md-form">
+            <label for="userRule" class="">Rule Name</label>
+          <input mdbInputDirective [(ngModel)]="insertUserObject.userRule" name="userRule" type="text" id="userRule" class="form-control" required>
+        </div>
+        <div class="md-form">
+            <label for="userUpdate" class="">Update </label>
+          <input mdbInputDirective [(ngModel)]="insertUserObject.userUpdate" name="userUpdate" type="text" id="userUpdate" class="form-control" required>
+        </div>
+        <div class="md-form">
+            <label for="userCountry" class="">Reference </label>
+          <input mdbInputDirective [(ngModel)]="insertUserObject.userReference" name="userReference" type="text" id="userReference" class="form-control" required>
+        </div>
+    <br>
+        <button (click)="insertInfo()">Insert</button>
+    </form>
+    <br>
+    <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Country</th>
+              <th>Rule</th>
+              <th>Update</th>
+              <th>Reference Case</th>
+            </tr>
+          </thead>
+      
+          <tbody *ngFor="let element of objectArray" >
+            <tr>
+              <td>{{element.DateStat | date:'medium' }}</td>
+              <td>{{element.Country}}</td>
+              <td>{{element.Rule}}</td>
+              <td>{{element.UpdateStat}}</td>
+              <td>{{element.Reference_Case}}</td>
+            </tr>
+          </tbody>
+      
+        </table>
+      </div>
+</div>
+<div class="updateWrapper" *ngIf="updateFlag">
+    <h4>Update Page</h4>
+    <!-- <form>
+        <div class="md-form">
+            <label for="userRule" class="">Rule Name</label>
+
+          <input mdbInputDirective [(ngModel)]="userObject.userRule" name="userRule" type="text" id="userRule" class="form-control" required>
+        </div>
+        <div class="md-form">
+            <label for="userCountry" class="">Country Name</label>
+
+          <input mdbInputDirective [(ngModel)]="userObject.userCountry" name="userCountry" type="test" id="userCountry" class="form-control" required>
+        </div>
+    <br>
+        <button (click)="getInfo()">Search</button>
+    </form> -->
+</div>
+<br>
+
 </div>
